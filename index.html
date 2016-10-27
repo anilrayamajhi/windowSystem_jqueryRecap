@@ -5,18 +5,15 @@
     <title>Window System</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-    <style media="screen">
-      h1{
-        cursor: pointer;
-      }
-    </style>
   </head>
   <body>
     <div class="container">
       <h1>Window System</h1><br /><br />
+      <button class="btn btn-info glyphicon glyphicon-user" type="button" name="button"></button>
+      <button class="btn btn-info glyphicon glyphicon-align-center" type="button" name="button"></button>
+      <button class="btn btn-info glyphicon glyphicon-pencil" type="button" name="button"></button>
     </div>
     <div class="container badass">
-
     </div>
 
     <script type="text/javascript">
@@ -33,11 +30,54 @@
         <hr /><br /><br /></div>\
       </div>';
 
-      $('h1').on('click',function(evt){
+
+      var windowHTMLInfo = '\
+      <div class="window-container">\
+        <div class="row window-panel">\
+          <button class="col-md-offset-9 col-xs-offset-7 col-sm-offset-9 col-md-0.5 btn btn-success glyphicon glyphicon-fullscreen"></button>\
+          <button class="col-md-0.5 btn btn-warning glyphicon glyphicon-minus" name="button"></button>\
+          <button class="col-md-0.5 btn btn-danger glyphicon glyphicon-remove" name="button"></button>\
+        </div>\
+        <hr>\
+        <div class="window-content">\
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\
+        <hr /><br /><br /></div>\
+      </div>';
+
+
+      var windowHTMLImg = '\
+      <div class="window-container">\
+        <div class="row window-panel">\
+          <button class="col-md-offset-9 col-xs-offset-7 col-sm-offset-9 col-md-0.5 btn btn-success glyphicon glyphicon-fullscreen"></button>\
+          <button class="col-md-0.5 btn btn-warning glyphicon glyphicon-minus" name="button"></button>\
+          <button class="col-md-0.5 btn btn-danger glyphicon glyphicon-remove" name="button"></button>\
+        </div>\
+        <hr>\
+        <div class="window-content"><div class="row">\
+        <img class="col-md-6" src="ganey.jpg" style="width:77px;"/><span class="col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span></div>\
+        <hr /><br /><br /></div>\
+      </div>';
+
+
+      $('.glyphicon-pencil').on('click',function(evt){
         var myWindow1 = $(windowHTMLDescription);
         myWindow1.hide();
         $('.badass').append(myWindow1);
         myWindow1.show(1000);
+      })
+
+      $(".glyphicon-align-center").on('click', function(evt){
+        var myWindow2 = $(windowHTMLInfo);
+        myWindow2.hide();
+        $('.badass').append(myWindow2);
+        myWindow2.show(1000);
+      })
+
+      $(".glyphicon-user").on('click', function(evt){
+        var myWindow3 = $(windowHTMLImg);
+        myWindow3.hide();
+        $('.badass').append(myWindow3);
+        myWindow3.show(1000);
       })
 
       $('.badass').delegate('.btn-danger', 'click', function(event) {
