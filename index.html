@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Window System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <style media="screen">
+      h1{
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Window System</h1><br /><br />
+    </div>
+    <div class="container badass">
+
+    </div>
+
+    <script type="text/javascript">
+      var windowHTMLDescription = '\
+      <div class="window-container">\
+        <div class="row window-panel">\
+          <button class="col-md-offset-9 col-xs-offset-7 col-sm-offset-9 col-md-0.5 btn btn-success glyphicon glyphicon-fullscreen"></button>\
+          <button class="col-md-0.5 btn btn-warning glyphicon glyphicon-minus" name="button"></button>\
+          <button class="col-md-0.5 btn btn-danger glyphicon glyphicon-remove" name="button"></button>\
+        </div>\
+        <hr>\
+        <div class="window-content">\
+        <textarea class="form-control" name="name" rows="17" cols="40" style="resize: none; border: 2px solid black"></textarea>\
+        <hr /><br /><br /></div>\
+      </div>';
+
+      $('h1').on('click',function(evt){
+        var myWindow1 = $(windowHTMLDescription);
+        myWindow1.hide();
+        $('.badass').append(myWindow1);
+        myWindow1.show(1000);
+      })
+
+      $('.badass').delegate('.btn-danger', 'click', function(event) {
+        var windowContainer = $(this).closest('.window-container')
+        windowContainer.hide(1000, function(evt){
+          $(this).remove();
+        })
+      });
+
+      $('.badass').delegate('.btn-warning', 'click', function(event) {
+        // console.log($(this).parent().siblings());
+        $(this).parent().siblings('.window-content').hide("slow", function(evt){
+          // $(this).remove();
+        })
+      });
+
+      $('.badass').delegate('.btn-success', 'click', function(event) {
+        // console.log($(this).parent().siblings());
+        $(this).parent().siblings('.window-content').show("slow", function(evt){
+          // $(this).remove();
+        })
+      });
+    </script>
+  </body>
+</html>
