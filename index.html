@@ -89,16 +89,12 @@
 
       $('.badass').delegate('.btn-warning', 'click', function(event) {
         // console.log($(this).parent().siblings());
-        $(this).parent().siblings('.window-content').hide("slow", function(evt){
-          // $(this).remove();
-        })
+        $(this).parent().siblings('.window-content').hide("slow")
       });
 
       $('.badass').delegate('.btn-success', 'click', function(event) {
         // console.log($(this).parent().siblings());
-        $(this).parent().siblings('.window-content').show("slow", function(evt){
-          // $(this).remove();
-        })
+        $(this).parent().siblings('.window-content').show("slow")
       });
     </script>
   </body>
